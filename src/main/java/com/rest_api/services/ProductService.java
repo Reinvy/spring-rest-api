@@ -15,25 +15,25 @@ import com.rest_api.models.repositories.ProductRepository;
 public class ProductService {
 
     @Autowired
-    private ProductRepository productRepo;
+    private ProductRepository productRepository;
 
     public ProductEntity save(ProductEntity product) {
-        return productRepo.save(product);
+        return productRepository.save(product);
     }
 
     public ProductEntity findById(Long id) {
-        return productRepo.findById(id).get();
+        return productRepository.findById(id).get();
     }
 
     public Iterable<ProductEntity> findAll() {
-        return productRepo.findAll();
+        return productRepository.findAll();
     }
 
     public void removeOne(Long id) {
-        productRepo.deleteById(id);
+        productRepository.deleteById(id);
     }
 
     public List<ProductEntity> search(String name) {
-        return productRepo.findByNameContains(name);
+        return productRepository.findByNameContains(name);
     }
 }
