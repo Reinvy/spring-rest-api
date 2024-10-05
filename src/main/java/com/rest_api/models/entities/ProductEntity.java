@@ -19,7 +19,7 @@ public class ProductEntity implements Serializable {
 
     private String description;
 
-    private Double price;
+    private Integer price;
 
     public long getId() {
         return id;
@@ -45,11 +45,11 @@ public class ProductEntity implements Serializable {
         this.description = description;
     }
 
-    public Double getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
