@@ -1,6 +1,7 @@
 package com.rest_api.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,5 +38,15 @@ public class ProductController {
     @GetMapping("/{id}")
     public ProductEntity findbyId(@PathVariable Long id) {
         return productService.findById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteById(@PathVariable Long id) {
+        try {
+            productService.removeOne(id);
+            return "Success";
+        } catch (Exception e) {
+            return "Failed";
+        }
     }
 }
