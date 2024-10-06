@@ -15,15 +15,15 @@ public class ProfileService {
     @Autowired
     private ProfileRepository profileRepository;
 
-    public Iterable<ProfileEntity> findAll() {
+    public Iterable<ProfileEntity> findAll() throws Exception {
         return profileRepository.findAll();
     }
 
-    public ProfileEntity findById(Long id) {
+    public ProfileEntity findById(Long id) throws Exception {
         return profileRepository.findById(id).get();
     }
 
-    public ProfileEntity addData(ProfileEntity data) {
+    public ProfileEntity addData(ProfileEntity data) throws Exception {
         return profileRepository.save(data);
     }
 }

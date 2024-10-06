@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.rest_api.helpers.ResponseException;
 import com.rest_api.helpers.ResponseHelper;
 import com.rest_api.models.entities.ProductEntity;
 import com.rest_api.services.ProductService;
@@ -68,6 +69,8 @@ public class ProductController {
         try {
             productService.removeOne(id);
             return ResponseHelper.build(HttpStatus.OK, true, "Data deleted successfully", null);
+        } catch (ResponseException e) {
+            return ResponseHelper.build(e.getHttpStatus(), false, e.getErrorMessage(), null);
         } catch (Exception e) {
             return ResponseHelper.build(HttpStatus.INTERNAL_SERVER_ERROR, false, e.getMessage(), null);
         }

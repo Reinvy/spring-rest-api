@@ -15,7 +15,7 @@ public class CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    public Iterable<CategoryEntity> findAll() {
+    public Iterable<CategoryEntity> findAll() throws Exception {
         return categoryRepository.findAll();
     }
 }
