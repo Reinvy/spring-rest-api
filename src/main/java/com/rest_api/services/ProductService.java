@@ -30,7 +30,11 @@ public class ProductService {
     }
 
     public void removeOne(Long id) {
-        productRepository.deleteById(id);
+        try {
+            productRepository.deleteById(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public List<ProductEntity> search(String name) {
